@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Valentine</title>
+	<style>
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+            flex-direction: column;
+			background-color: #f0f0f0;
+		}
+		img {
+			width: 200px;
+			height: 200px;
+			margin-bottom: 20px;
+		}
+		button {
+			padding: 10px 20px;
+			font-size: 20px;
+			margin: 10px;
+			cursor: pointer;
+		}
+		#yes {
+			background-color: rgb(9, 158, 9);
+			color: white;
+		}
+		#no {
+			background-color: red;
+			color: white;
+		}
+		.hidden {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<img id="heart" src="foto/0.gif" alt="Heart">
+	<h1 id="question">Will you be my Valentine?</h1>
+	<button id="yes">YES</button>
+	<button id="no">NO</button>
+
+	<script>
+		const heart = document.getElementById("heart");
+		const question = document.getElementById("question");
+		const yes = document.getElementById("yes");
+		const no = document.getElementById("no");
+
+		yes.addEventListener("click", () => {
+			question.innerHTML = "Call me in WhatsApp oke";
+			heart.src = "foto/-1.gif";
+			yes.classList.add("hidden");
+			no.classList.add("hidden");
+		});
+
+		no.addEventListener("click", () => {
+			if (question.innerHTML === "Will you be my Valentine?") {
+				question.innerHTML = "Think it again";
+				heart.src = "foto/6.gif";
+			} else if (question.innerHTML === "Think it again") {
+				question.innerHTML = "Please be my Valentine!";
+				heart.src = "foto/2.gif";
+			} else if (question.innerHTML === "Please be my Valentine!") {
+                question.innerHTML = "Please, i'll give you gift";
+				heart.src = "foto/3.gif";
+			} else if (question.innerHTML === "Please, i'll give you gift") {
+				question.innerHTML = "Listen to me";
+				heart.src = "foto/4.gif";
+			} else if (question.innerHTML === "Listen to me") {
+				question.innerHTML = "I will take care you";
+				heart.src = "foto/5.gif";
+			} else if (question.innerHTML === "I will take care you") {
+				question.innerHTML = "Please, i will cry";
+				heart.src = "foto/1.gif";
+			} else if (question.innerHTML === "Please, i will cry") {
+				question.innerHTML = "I am asking last time";
+				heart.src = "foto/7.gif";
+			} else if (question.innerHTML === "I am asking last time") {
+				yes.classList.add("hidden");
+				no.classList.add("hidden");
+				question.innerHTML = "Okay bye, you don't deserve me";
+				question.style.color = "red";
+				heart.src = "foto/8.gif";
+			}
+		});
+	</script>
+</body>
+</html>

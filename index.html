@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>for love</title>
+	<style>
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+            flex-direction: column;
+			background-color: #f0f0f0;
+			font-family: 'Arial', sans-serif;
+			user-select: none; /* Mencegah teks diseleksi */
+			background-image: url('foto/background1.jpg'); /* Mengubah latar belakang */
+			background-size: cover; /* Menyesuaikan ukuran gambar */
+			background-position: center; /* Memusatkan gambar */
+		}
+		img {
+			width: 200px;
+			height: 200px;
+			margin-bottom: 20px;
+			transition: transform 0.3s;
+		}
+		img:hover {
+			transform: scale(1.1);
+		}
+		button {
+			padding: 10px 20px;
+			font-size: 20px;
+			margin: 10px;
+			cursor: pointer;
+			border: none;
+			border-radius: 5px;
+			transition: background-color 0.3s, transform 0.3s;
+		}
+		button:hover {
+			transform: scale(1.05);
+		}
+		#yes {
+			background-color: rgb(9, 158, 9);
+			color: white;
+		}
+		#no {
+			background-color: red;
+			color: white;
+		}
+		.hidden {
+			display: none;
+		}
+		h1 {
+			color: #ff69b4;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+			animation: pulse 1.5s infinite;
+		}
+		@keyframes pulse {
+			0% { transform: scale(1); }
+			50% { transform: scale(1.05); }
+			100% { transform: scale(1); }
+		}
+		.watermark {
+			position: fixed;
+			bottom: 10px;
+			left: 10px;
+			color: rgba(255, 255, 255, 0.5);
+			font-size: 14px;
+			pointer-events: none; /* agar tidak mengganggu interaksi */
+		}
+	</style>
+</head>
+<body oncontextmenu="return false;">
+	<img id="heart" src="foto/0.gif" alt="Heart">
+	<h1 id="question">Will you be my Valentine?🥺</h1>
+	<button id="yes">YES</button>
+	<button id="no">NO</button>
+	<div class="watermark">@xeuzye_</div>
+
+<script>
+    const heart = document.getElementById("heart");
+    const question = document.getElementById("question");
+    const yes = document.getElementById("yes");
+    const no = document.getElementById("no");
+    let audio = new Audio("https://f.top4top.io/m_29113ioqe1.mp3");
+
+    yes.addEventListener("click", () => {
+        audio.pause();
+        audio = new Audio("");//dihapus untuk sementara
+        audio.play();
+        question.innerHTML = "okeyy u are my valentine now, i have gift for u...😚";
+        heart.src = "foto/-1.gif";
+        yes.classList.add("hidden");
+        no.classList.add("hidden");
+
+        // Tambahkan tombol gift
+        const giftContainer = document.createElement("div");
+        giftContainer.style.display = "flex";
+        giftContainer.style.flexDirection = "column";
+        giftContainer.style.alignItems = "center";
+        document.body.appendChild(giftContainer);
+
+        const giftButton = document.createElement("button");
+        giftButton.innerHTML = "Gift";
+        giftButton.onclick = () => {
+            window.location.href = "https://dreamwolf123.github.io/hadiah-dari-aku/";
+        };
+        giftContainer.appendChild(giftButton);
+    });
+
+    no.addEventListener("click", () => {
+        if (question.innerHTML === "Will you be my Valentine?🥺") {
+            question.innerHTML = "Think it again";
+            heart.src = "foto/6.gif";
+        } else if (question.innerHTML === "Think it again") {
+            question.innerHTML = "Pleaseee😣";
+            heart.src = "foto/2.gif";
+        } else if (question.innerHTML === "Pleaseee😣") {
+            question.innerHTML = "Please be my valentine😩";
+            heart.src = "foto/3.gif";
+        } else if (question.innerHTML === "Please be my valentine😩") {
+            question.innerHTML = "Listen to me";
+            heart.src = "foto/4.gif";
+        } else if (question.innerHTML === "Listen to me") {
+            question.innerHTML = "i will take care u🥺";
+            heart.src = "foto/5.gif";
+        } else if (question.innerHTML === "i will take care u🥺") {
+            question.innerHTML = "Please, i will cry😭";
+            heart.src = "foto/1.gif";
+        } else if (question.innerHTML === "Please, i will cry😭") {
+            question.innerHTML = "I am asking last time, aku maksaaa😤";
+            heart.src = "foto/7.gif";
+        } else if (question.innerHTML === "I am asking last time, aku maksaaa😤") {
+            yes.classList.add("hidden");
+            no.classList.add("hidden");
+            question.innerHTML = "Okay bye, lupakan ajhhhhh😠";
+            question.style.color = "red";
+            heart.src = "foto/8.gif";
+            audio.pause();
+            audio = new Audio("https://f.top4top.io/m_29113ioqe1.mp3");
+            audio.play();
+        }
+    });
+</script>
+</body>
+</html>
